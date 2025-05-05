@@ -3,16 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Linktree</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mi Linktree Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7F00FF;
+            --secondary: #E100FF;
+            --background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            --text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--background);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: var(--text);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            margin: 20px auto;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .links-container {
+            display: grid;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(127, 0, 255, 0.3);
+        }
+
+        .link-icon {
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .link-card {
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <img src="perfil.jpg" alt="Mi Perfil">
-        <h1>Tu Nombre</h1>
-        <p>Descripción breve sobre ti</p>
-        <a href="https://github.com" class="boton">GitHub</a>
-        <a href="https://twitter.com" class="boton">Twitter</a>
+        <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg" alt="Foto de perfil" class="profile-img">
+        <h1>@TuNombre</h1>
+        
+        <div class="links-container">
+            <a href="https://instagram.com" target="_blank" class="link-card">
+                <i class="fab fa-instagram link-icon"></i>
+                Instagram
+            </a>
+            
+            <a href="https://linkedin.com" target="_blank" class="link-card">
+                <i class="fab fa-linkedin link-icon"></i>
+                LinkedIn
+            </a>
+            
+            <a href="https://github.com" target="_blank" class="link-card">
+                <i class="fab fa-github link-icon"></i>
+                GitHub
+            </a>
+            
+            <a href="mailto:contacto@example.com" class="link-card">
+                <i class="fas fa-envelope link-icon"></i>
+                Contacto
+            </a>
+        </div>
     </div>
+
+    <script>
+        // Efecto de carga suave
+        document.body.style.opacity = '0';
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Efecto hover mejorado
+        document.querySelectorAll('.link-card').forEach(link => {
+            link.addEventListener('mouseover', () => {
+                link.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            link.addEventListener('mouseout', () => {
+                link.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
